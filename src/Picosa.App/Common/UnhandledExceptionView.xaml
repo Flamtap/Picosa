@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="Picosa.App.Common.UnhandledExceptionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DataContext="{d:DesignInstance common:UnhandledExceptionViewModel}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" FontSize="12" HorizontalAlignment="Left" Margin="10" TextWrapping="Wrap">
+            An unexpected error occurred.  Click 'Ignore' to continue, or save a log of the error by clicking 'Save Log'.
+        </TextBlock>
+
+        <TextBox Grid.Row="1"
+                 HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto"
+                 IsReadOnly="True" TextWrapping="Wrap" Text="{Binding ExceptionLog, Mode=OneWay}" />
+
+        <StackPanel Grid.Row="2" Grid.Column="0"
+                    Orientation="Horizontal" HorizontalAlignment="Right">
+
+            <Button Command="{Binding SaveLogCommand}" Content="Save Log..." />
+
+            <Button Command="{Binding IgnoreCommand}" Content="Ignore" />
+
+        </StackPanel>
+    </Grid>
+</UserControl>
