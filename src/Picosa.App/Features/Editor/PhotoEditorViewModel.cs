@@ -1,31 +1,25 @@
 ﻿using System;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 using Picosa.App.Infrastructure;
 
-namespace Picosa.App.Features
+namespace Picosa.App.Features.Editor
 {
     public class PhotoEditorViewModel : ViewModelBase
     {
-        public ICommand OpenCommand => new RelayCommand(Open);
+        private readonly string _fileName;
 
-        private void Open()
+        public PhotoEditorViewModel(string fileName, BitmapImage originalImage)
         {
-            throw new NotImplementedException();
+            _fileName = fileName;
+            OriginalImage = originalImage;
         }
+        
+        public string FileName => _fileName;
 
-        public ICommand SaveCommand => new RelayCommand(Save);
+        public BitmapImage OriginalImage { get; }
 
-        private void Save()
-        {
-            throw new NotImplementedException();
-        }
-
-        public ICommand SaveAsCommand => new RelayCommand(SaveAs);
-
-        private void SaveAs()
-        {
-            throw new NotImplementedException();
-        }
+        #region Commands
 
         public ICommand CropCommand => new RelayCommand(Crop);
 
@@ -40,5 +34,7 @@ namespace Picosa.App.Features
         {
             throw new NotImplementedException();
         }
+
+        #endregion
     }
 }

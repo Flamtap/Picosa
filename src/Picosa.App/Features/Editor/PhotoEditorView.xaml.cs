@@ -1,11 +1,9 @@
-﻿using System.Windows.Controls;
-
-namespace Picosa.App.Features
+﻿namespace Picosa.App.Features.Editor
 {
     /// <summary>
     /// Interaction logic for PhotoEditorView.xaml
     /// </summary>
-    public partial class PhotoEditorView : UserControl
+    public partial class PhotoEditorView
     {
         public PhotoEditorView()
         {

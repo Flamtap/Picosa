@@ -2,10 +2,16 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:infrastructure="clr-namespace:Picosa.App.Infrastructure"
+             xmlns:converters="clr-namespace:Picosa.App.Infrastructure.Converters"
              Startup="ApplicationStartup" DispatcherUnhandledException="HandleUnhandledException">
     <Application.Resources>
         <ResourceDictionary>
-            <infrastructure:ViewTemplateSelector x:Key="ViewTemplateSelector"/>
+            <infrastructure:ViewTemplateSelector x:Key="ViewTemplateSelector" />
+            
+            <!-- Converters -->
+            <converters:DataTypeConverter x:Key="DataTypeConverter" />
+            <converters:BooleanNotConverter x:Key="BooleanNotConverter" />
+            <converters:BooleanNotNullConverter x:Key="BooleanNotNullConverter" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

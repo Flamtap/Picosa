@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Threading;
-using Picosa.App.Common;
-using Picosa.App.Features;
+using Picosa.App.Features.Common;
+using Picosa.App.Features.Editor;
 
 namespace Picosa.App
 {
@@ -12,7 +12,7 @@ namespace Picosa.App
     {
         private void ApplicationStartup(object sender, StartupEventArgs e)
         {
-            var viewModel = new MainViewModel(new PhotoEditorViewModel());
+            var viewModel = new MainViewModel(new GlobalEditorViewModel());
             var mainWindow = new MainWindow(viewModel);
 
             mainWindow.Show();

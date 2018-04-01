@@ -7,7 +7,7 @@ using System.Windows.Input;
 using Microsoft.Win32;
 using Picosa.App.Infrastructure;
 
-namespace Picosa.App.Common
+namespace Picosa.App.Features.Common
 {
     public class UnhandledExceptionViewModel : ViewModelBase
     {

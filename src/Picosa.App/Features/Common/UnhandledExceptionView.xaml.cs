@@ -1,4 +1,4 @@
-﻿namespace Picosa.App.Common
+﻿namespace Picosa.App.Features.Common
 {
     public partial class UnhandledExceptionView
     {

@@ -54,18 +54,30 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Features\PhotoEditorView.xaml.cs">
+    <Compile Include="Features\Editor\GlobalEditorView.xaml.cs">
+      <DependentUpon>GlobalEditorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Editor\GlobalEditorViewModel.cs" />
+    <Compile Include="Features\Editor\PhotoEditorView.xaml.cs">
       <DependentUpon>PhotoEditorView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Features\PhotoEditorViewModel.cs" />
+    <Compile Include="Features\Editor\PhotoEditorViewModel.cs" />
+    <Compile Include="Infrastructure\Converters\BooleanNotConverter.cs" />
+    <Compile Include="Infrastructure\Converters\BooleanNotNullConverter.cs" />
+    <Compile Include="Infrastructure\Converters\DataTypeConverter.cs" />
+    <Compile Include="Infrastructure\Dialog.cs" />
     <Compile Include="Infrastructure\RelayCommand.cs" />
     <Compile Include="Infrastructure\ViewTemplateSelector.cs" />
     <Compile Include="ViewModelBase.cs" />
-    <Page Include="Common\UnhandledExceptionView.xaml">
+    <Page Include="Features\Common\UnhandledExceptionView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Features\PhotoEditorView.xaml">
+    <Page Include="Features\Editor\GlobalEditorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Features\Editor\PhotoEditorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -77,10 +89,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Common\UnhandledExceptionView.xaml.cs">
+    <Compile Include="Features\Common\UnhandledExceptionView.xaml.cs">
       <DependentUpon>UnhandledExceptionView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Common\UnhandledExceptionViewModel.cs" />
+    <Compile Include="Features\Common\UnhandledExceptionViewModel.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -112,6 +124,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="picosa.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

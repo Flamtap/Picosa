@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Picosa.App.Common.UnhandledExceptionView"
+﻿<UserControl x:Class="Picosa.App.Features.Common.UnhandledExceptionView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
