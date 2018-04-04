@@ -5,10 +5,22 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <Label Grid.Row="0" Content="{Binding FileName}" />
+        <Image x:Name="MainImage" Grid.Row="1" Source="{Binding CurrentImage}" />
 
-        <Image Grid.Row="1" Source="{Binding OriginalImage}" />
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Content="Crop" Command="{Binding CropCommand}" />
+            <Button Grid.Column="1" Content="Add Watermark" Command="{Binding AddWatermarkCommand}" />
+            <Label Grid.Column="2" Content="Unsaved Changes!" Visibility="{Binding IsDirty, Converter={StaticResource BooleanToVisibilityConverter}}" />
+        </Grid>
     </Grid>
 </UserControl>

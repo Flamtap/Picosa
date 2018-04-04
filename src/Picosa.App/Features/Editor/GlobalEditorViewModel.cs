@@ -4,6 +4,7 @@ using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using Microsoft.Win32;
 using Picosa.App.Infrastructure;
+using Picosa.App.Infrastructure.Dialogs;
 
 namespace Picosa.App.Features.Editor
 {

@@ -10,6 +10,8 @@ namespace Picosa.App
     /// </summary>
     public partial class App
     {
+        public const string Name = "Picosa";
+
         private void ApplicationStartup(object sender, StartupEventArgs e)
         {
             var viewModel = new MainViewModel(new GlobalEditorViewModel());
@@ -25,7 +27,7 @@ namespace Picosa.App
             var viewModel = new UnhandledExceptionViewModel(e.Exception);
             var window = new Window
             {
-                Title = "Picosa - Error",
+                Title = $"{Name} - Error",
                 Height = 400,
                 Width = 500,
                 SizeToContent = SizeToContent.Manual,

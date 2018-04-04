@@ -36,6 +36,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -65,7 +66,18 @@
     <Compile Include="Infrastructure\Converters\BooleanNotConverter.cs" />
     <Compile Include="Infrastructure\Converters\BooleanNotNullConverter.cs" />
     <Compile Include="Infrastructure\Converters\DataTypeConverter.cs" />
-    <Compile Include="Infrastructure\Dialog.cs" />
+    <Compile Include="Infrastructure\Dialogs\Dialog.cs" />
+    <Compile Include="Infrastructure\Dialogs\DialogButtonOptions.cs" />
+    <Compile Include="Infrastructure\Dialogs\DialogButtonViewModel.cs" />
+    <Compile Include="Infrastructure\Dialogs\DialogButtonViewModelBase.cs" />
+    <Compile Include="Infrastructure\Dialogs\View\CropImageDialogView.xaml.cs">
+      <DependentUpon>CropImageDialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\Dialogs\ViewModel\CropImageDialogViewModel.cs" />
+    <Compile Include="Infrastructure\Dialogs\DialogViewModel.cs" />
+    <Compile Include="Infrastructure\Dialogs\DialogWindow.xaml.cs">
+      <DependentUpon>DialogWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Infrastructure\RelayCommand.cs" />
     <Compile Include="Infrastructure\ViewTemplateSelector.cs" />
     <Compile Include="ViewModelBase.cs" />
@@ -78,6 +90,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Features\Editor\PhotoEditorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Infrastructure\Dialogs\View\CropImageDialogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Infrastructure\Dialogs\DialogWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -129,6 +149,12 @@
     <Content Include="picosa.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Picosa.Library\Picosa.csproj">
+      <Project>{3AE40C5A-B51F-4137-9D7A-9F1917C85E18}</Project>
+      <Name>Picosa</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -2,22 +2,45 @@
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using Picosa.App.Infrastructure;
+using Picosa.App.Infrastructure.Dialogs;
+using Picosa.App.Infrastructure.Dialogs.ViewModel;
 
 namespace Picosa.App.Features.Editor
 {
     public class PhotoEditorViewModel : ViewModelBase
     {
-        private readonly string _fileName;
+        private bool _isDirty;
+        private BitmapImage _currentImage;
 
-        public PhotoEditorViewModel(string fileName, BitmapImage originalImage)
+        public PhotoEditorViewModel(string fileName, BitmapImage currentImage)
         {
-            _fileName = fileName;
-            OriginalImage = originalImage;
+            FileName = fileName;
+            CurrentImage = currentImage;
         }
         
-        public string FileName => _fileName;
+        public string FileName { get; }
 
-        public BitmapImage OriginalImage { get; }
+        public BitmapImage CurrentImage
+        {
+            get => _currentImage;
+            set
+            {
+                _currentImage = value; 
+
+                OnPropertyChanged();
+            }
+        }
+
+        public bool IsDirty
+        {
+            get => _isDirty;
+            set
+            {
+                _isDirty = value;
+
+                OnPropertyChanged();
+            }
+        }
 
         #region Commands
 
@@ -25,7 +48,10 @@ namespace Picosa.App.Features.Editor
 
         private void Crop()
         {
-            throw new NotImplementedException();
+            var cropViewModel = new CropImageDialogViewModel(FileName);
+
+            if (Dialog.Show(cropViewModel) == true)
+                CurrentImage = cropViewModel.GetCroppedImage();
         }
 
         public ICommand AddWatermarkCommand => new RelayCommand(AddWatermark);

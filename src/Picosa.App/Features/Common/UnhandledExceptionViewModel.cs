@@ -41,7 +41,7 @@ namespace Picosa.App.Features.Common
 
                 var sb = new StringBuilder();
 
-                sb.AppendLine("Picosa Error Log");
+                sb.AppendLine($"{App.Name} Error Log");
                 sb.AppendLine(separator);
                 sb.AppendLine($"Date: {DateTime.UtcNow:R}");
                 sb.AppendLine($"Version: {Assembly.GetExecutingAssembly().GetName().Version}");
@@ -98,7 +98,7 @@ namespace Picosa.App.Features.Common
 
             var dialog = new SaveFileDialog
             {
-                FileName = "PicosaException",
+                FileName = $"{App.Name}Exception",
                 DefaultExt = ".txt",
                 Filter = "Text Files (.txt)|*.txt|All Files|*.*"
             };
