@@ -1,7 +1,26 @@
-version: 1.0.{build}
-image: Visual Studio 2017
+artifacts:
+- path: build\pkg
+  name: PicosaArtifacts
+
+before_build:
+  - ps: gitversion $env:APPVEYOR_BUILD_FOLDER /l console /output buildserver /updateAssemblyInfo /nofetch /b $env:APPVEYOR_REPO_BRANCH
+
 branches:
   only:
-  - master
+    - develop
+    - master
+    - /release/.*/
+
 build_script:
-- cmd: PowerShell -Version 2.0 .\build.ps1
+  - ps: ./build -t Full
+
+cache:
+  - tools -> build.cake
+
+image: Visual Studio 2017
+
+skip_branch_with_pr: true
+
+test: off
+
+version: '{build}'
