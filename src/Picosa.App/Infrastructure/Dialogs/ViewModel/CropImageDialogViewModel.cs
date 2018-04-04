@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows;
 using System.Windows.Media.Imaging;
+using Picosa.Util;
 
 namespace Picosa.App.Infrastructure.Dialogs.ViewModel
 {
