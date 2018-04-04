@@ -1,24 +1,22 @@
 ﻿using System;
 using System.Drawing;
-using System.Windows;
 using System.Windows.Media.Imaging;
-using Picosa.Util;
 
 namespace Picosa.App.Infrastructure.Dialogs.ViewModel
 {
     public class CropImageDialogViewModel : DialogViewModel
     {
-        private readonly string _sourceFileName;
         private BitmapImage _originalImage;
         private BitmapSource _currentImage;
 
-        public CropImageDialogViewModel(BitmapImage originalImage) => _originalImage = originalImage;
+        public CropImageDialogViewModel(string sourceFileName) =>
+            OriginalImage = new BitmapImage(new Uri(sourceFileName));
 
-        public CropImageDialogViewModel(string sourceFileName)
-        {
-            _sourceFileName = sourceFileName;
-            OriginalImage = new BitmapImage(new Uri(_sourceFileName));
-        }
+        public int MinimumCropWidth => 64;
+
+        public int MinimumCropHeight => 64;
+
+        public Rectangle CropArea { get; set; }
 
         public BitmapImage OriginalImage
         {
@@ -42,23 +40,6 @@ namespace Picosa.App.Infrastructure.Dialogs.ViewModel
                 _currentImage = value;
                 OnPropertyChanged();
             }
-        }
-
-        public Rectangle CropArea { get; set; }
-
-        public int MinimumCropWidth => 64;
-
-        public int MinimumCropHeight => 64;
-
-        public BitmapImage GetCroppedImage()
-        {
-            var sourceBmp = new Bitmap(_sourceFileName);
-
-            var newBmp = new Bitmap(CropArea.Width, CropArea.Height);
-            var graphics = Graphics.FromImage(newBmp);
-            graphics.DrawImage(sourceBmp, -CropArea.X, -CropArea.Y);
-
-            return BitmapConverter.ToBitmapImage(newBmp);
         }
     }
 }
