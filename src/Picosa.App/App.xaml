@@ -12,6 +12,7 @@
             <converters:DataTypeConverter x:Key="DataTypeConverter" />
             <converters:BooleanNotConverter x:Key="BooleanNotConverter" />
             <converters:BooleanNotNullConverter x:Key="BooleanNotNullConverter" />
+            <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>
