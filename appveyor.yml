@@ -12,7 +12,7 @@ branches:
     - /release/.*/
 
 build_script:
-  - ps: ./build -t Full
+  - ps: ./build
 
 cache:
   - tools -> build.cake
